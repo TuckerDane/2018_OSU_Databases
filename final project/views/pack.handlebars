@@ -1,0 +1,195 @@
+<div class="container">
+    <h1>Pack</h1>
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Food</a>
+                </h2>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <table class="table table-hover table-condensed">
+                        <thead> 
+                            <th>Name</th> 
+                            <th>Weight</th> 
+                            <th>Calories</th>
+                            <th>Fat</th> 
+                            <th>Protein</th>
+                        </thead>
+                        <tbody> 
+                            {{#each food}}
+                            <tr> 
+                                <td>{{name}}</td> 
+                                <td>{{weight}}</td> 
+                                <td>{{calories}}</td> 
+                                <td>{{fat}}</td>
+                                <td>{{protein}}</td>
+                                <td><button class="btn btn-danger btn-sm" onclick="deleteitem({{item_id}})">Delete</button></td>
+                                <td><button class="btn btn-primary btn-sm" onclick="location.href='/pack/{{item_id}}'">Update</a></td>
+                            </tr> 
+                            {{/each}} 
+                    </table> 
+
+                    <div class="panel-group" id="addFood">
+                        <div class="panel">
+                            <a data-toggle="collapse" data-parent="#addFood" href="#addFoodForm">Add Food Item &raquo;
+                            </a>
+                            <div id="addFoodForm" class="panel-collapse collapse">
+                                <form id="addfood" action="/pack/addFood" method="post">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" name="foodName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Weight</label>
+                                        <input type="text" class="form-control" name="foodWeight">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Calories</label>
+                                        <input type="text" class="form-control" name="calories">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Fat</label>
+                                        <input type="text" class="form-control" name="fat">
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="name">Protein</label>
+                                        <input type="text" class="form-control" name="protein">
+                                    </div>
+                                   <input class="btn btn-primary" type="submit" value="Submit">                                       
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Equipment</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table table-hover table-condensed">
+                        <thead> 
+                            <th>Name</th> 
+                            <th>Weight</th> 
+                            <th>Manufacture Date</th>
+                            <th>Expiration Date</th> 
+                            <th>Description</td>
+                        </thead>
+                        <tbody> 
+                            {{#each equipment}} 
+                            <tr> 
+                                <td>{{name}}</td> 
+                                <td>{{weight}}</td> 
+                                <td>{{manufactureDate}}</td> 
+                                <td>{{expirationDate}}</td>
+                                <td>{{description}}</td>
+                                <td><button class="btn btn-danger btn-sm" onclick="deleteitem({{item_id}})">Delete</button></td>
+                                <td><button class="btn btn-primary btn-sm" onclick="location.href='/pack/{{item_id}}'">Update</a></td>
+                            </tr> 
+                            {{/each}} 
+                    </table>
+
+                    <div class="panel-group" id="addEquipment">
+                        <div class="panel">
+                            <a data-toggle="collapse" data-parent="#addEquipment" href="#addEquipmentForm">Add Equipment Item &raquo;
+                            </a>
+                            <div id="addEquipmentForm" class="panel-collapse collapse">
+                                <form id="addfood" action="/pack/addEquipment" method="post">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" name="equipmentName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Weight</label>
+                                        <input type="text" class="form-control" name="equipmentWeight">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Manufacture Date</label>
+                                        <input type="date" class="form-control" name="equipmentManDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Expiration Date</label>
+                                        <input type="date" class="form-control" name="equipmentExpDate">
+                                    </div> 
+                                    <div class="form-group">
+                                        <label for="name">Description</label>
+                                        <input type="text" class="form-control" name="equipmentDescription">
+                                    </div>
+                                <input class="btn btn-primary btn-sm" type="submit" value="Submit">                                         
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Containers</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table table-hover table-condensed">
+                        <thead> 
+                            <th>Container</th>
+                            <th>Contents</th> 
+                        </thead>
+                        <tbody> 
+                            {{#each container}} 
+                            <tr> 
+                                <td>{{container}}</td>
+                                <td>{{contents}}</td> 
+                                <td><button class="btn btn-primary btn-sm" onclick="removeitem({{item_id}})">Remove</button></td>
+                            </tr> 
+                            {{/each}} 
+                    </table>
+
+                    <div class="panel-group" id="packItem">
+                        <div class="panel">
+                            <a data-toggle="collapse" data-parent="#packItem" href="#packItemForm">Pack An Item &raquo;
+                            </a>
+                            <div id="packItemForm" class="panel-collapse collapse">
+                                <form id="addfood" action="/pack/packItem" method="post">
+                                    <div class="form-group">
+                                        <label for="name">Container</label>
+                                        <select name="container"> 
+                                            {{#each item}}
+                                                <option name="container" value="{{item_id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Contents</label>
+                                        <select name="contents"> 
+                                            {{#each item}}
+                                                <option name="contents" value="{{item_id}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                <input class="btn btn-primary btn-sm" type="submit" value="Submit">                                         
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
