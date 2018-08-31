@@ -1,4 +1,4 @@
-# 2018_OSU_Databases
+# 2018 OSU Databases
 Projects from my Databases class at Oregon State University
 ## Assignment I
 relational database diagram exercise
